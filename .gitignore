@@ -1,0 +1,23 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+tmp/
+upload/
+bitrix/cache/
+bitrix/managed_cache/
+bitrix/*cache*
+
+*.log
+*.old
+.htaccess
+bitrix/.settings.php
+bitrix/php_interface/dbconn.php
+
+

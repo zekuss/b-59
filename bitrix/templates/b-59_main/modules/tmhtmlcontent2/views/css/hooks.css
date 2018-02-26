@@ -1,0 +1,130 @@
+/* Home hooh CSS */
+#htmlcontent_home {
+}
+
+ul.htmlcontent-home {
+}
+
+li.htmlcontent-item {
+}
+
+li.htmlcontent-item a.item-link {
+}
+
+li.htmlcontent-item img.item-img {
+}
+
+li.htmlcontent-item h3.item-title {
+}
+
+li.htmlcontent-item div.item-html {
+}
+
+/*Frontend Styles*/
+#htmlcontent_home2 {margin-bottom:23px;padding-top:5px}
+
+#htmlcontent_home2 li {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-ms-box-sizing:border-box;	
+	float:left;
+	width:49.94%;
+	}
+#htmlcontent_home2 li.number1{margin-right:1px }	
+	
+#htmlcontent_home2 li > div {
+	position:relative;	
+}
+
+#htmlcontent_home2 li a{
+	display:block;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+#htmlcontent_home2 li .item-html{
+	position:absolute;
+	top:13%;
+	left:4%;
+	width:55%}
+
+#htmlcontent_home2 h2 {
+	font-family:'Roboto', sans-serif;
+	font-size:34px;
+	line-height:36px;
+	color:#fff;
+	font-weight:900;
+	margin:0;	
+	text-transform:uppercase;
+	margin:14px 0  5px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	}
+		
+#htmlcontent_home2 strong {
+	font-family:'Roboto', sans-serif;
+	font-size:18px;
+	line-height:1em;
+	display:inline-block;
+	background:#4fcbd7;
+	padding:8px 11px; 
+	color:#fff;
+	font-weight:900;	
+	text-transform:uppercase;	
+	}	
+#htmlcontent_home2 span{
+	color:#fff;	
+	}	
+	
+#htmlcontent_home2 li.number2 h2{color:#18212a;}	
+	
+#htmlcontent_home2 li.number2 span{color:#777;}	
+	
+#htmlcontent_home2 li a:hover h2{color:#4fcbd7}
+
+
+body.instant_search #htmlcontent_top { display:none;}
+
+@media (max-width: 1199px) {
+#htmlcontent_home2 li{width:348px;}
+#htmlcontent_home2 li h2{font-size:27px;line-height:1em;}
+#htmlcontent_home2 li span{display:none}
+}
+
+@media (max-width: 991px) {
+
+#htmlcontent_home2 li{width:265px;}
+#htmlcontent_home2 li .item-html{width:62%}
+#htmlcontent_home2 li h2{font-size:20px;}
+}
+
+
+
+@media (max-width: 797px) {
+#htmlcontent_home2 {width:400px;margin:0 auto}
+#htmlcontent_home2 li{width: 100%;float:none;margin-bottom:1px;}
+#htmlcontent_home2 li span{display:block}
+
+}
+
+@media (max-width: 480px) {
+#htmlcontent_home2 {width:290px;margin:0 auto}
+#htmlcontent_home2 li span{display:none}
+}
+
+
+/* Left hooh CSS */
+#htmlcontent_left {
+}
+
+/* Right hooh CSS */
+#htmlcontent_right {
+}
+
+/* Footer hooh CSS */
+#htmlcontent_footer {
+}

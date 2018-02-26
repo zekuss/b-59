@@ -1,0 +1,17 @@
+/* Ссылка на детальную страницу */
+a.btn.btn-default.button.product-item-btn-show-more {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+    height: 49px;
+}
+
+.product-item-list-col-3 img,
+.product-item-small-card img {
+    height: 150px;
+}
+
+p.product_desc {
+    min-height: 95px;
+}
