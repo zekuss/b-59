@@ -56,7 +56,7 @@ $APPLICATION->SetTitle("Каталог товаров из 1C:Предприят
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
 		"PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
-		"PRODUCT_SUBSCRIPTION" => "Y",
+		"PRODUCT_SUBSCRIPTION" => "N",
 		"PROPERTY_CODE" => array(
 			0 => "",
 			1 => "",

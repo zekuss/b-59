@@ -15,3 +15,28 @@ a.btn.btn-default.button.product-item-btn-show-more {
 p.product_desc {
     min-height: 95px;
 }
+
+/* Фильтр */
+.fa {
+    float: right;
+}
+
+.bx-filter-parameters-box-hint {
+    display: inline-block;
+    color: #4fcbd7 !important;
+    font-weight: bold;
+    font-size: 21px;
+    width: 100%;
+}
+
+.bx-filter-input-checkbox {
+    display: block;
+}
+
+.fa {
+    color: #333333;
+}
+
+.bx-filter.bx-blue .bx-filter-section {
+    background: none;
+}
