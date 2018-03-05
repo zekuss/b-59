@@ -40,3 +40,45 @@ p.product_desc {
 .bx-filter.bx-blue .bx-filter-section {
     background: none;
 }
+
+/* Modal */
+
+.modal {
+    z-index: 1050;
+}
+.modal-dialog {
+    top: 10%;
+}
+
+.modal-backdrop.show {
+    display: none !important;
+}
+.modal-body {
+    max-height: none;
+}
+
+
+/*  Кнопки  */
+.btn-primary {
+    background: #4fcbd7;
+    border-color: #4fcbd7;
+}
+
+.product-item-image-alternative,
+.product-item-image-original {
+    z-index: 1;
+}
+
+/* Малая корзина */
+#cart_block {
+    width: 260px;
+    background: #fff;
+}
+#header_user #shopping_cart a {
+    padding: 29px 20px;
+}
+
+#header #cart_block {
+    top: 80px;
+    display: block;
+}

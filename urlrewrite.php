@@ -61,6 +61,12 @@ $arUrlRewrite = array(
 		"PATH" => "/content/photo/index.php",
 	),
 	array(
+		"CONDITION" => "#^/manufacturers/#",
+		"RULE" => "",
+		"ID" => "bitrix:news",
+		"PATH" => "/manufacturers/index.php",
+	),
+	array(
 		"CONDITION" => "#^/content/news/#",
 		"RULE" => "",
 		"ID" => "bitrix:news",

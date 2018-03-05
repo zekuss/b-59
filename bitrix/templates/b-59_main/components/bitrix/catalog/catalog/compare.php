@@ -47,7 +47,7 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 		"OFFERS_CART_PROPERTIES" => $arParams["OFFERS_CART_PROPERTIES"],
 		'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
 		'CURRENCY_ID' => $arParams['CURRENCY_ID'],
-		'HIDE_NOT_AVAILABLE' => $arParams['HIDE_NOT_AVAILABLE'],
+		'HIDE_NOT_AVAILABLE' => 'Y',
 		'TEMPLATE_THEME' => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : '')
 	),
 	$component,
