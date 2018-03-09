@@ -13,14 +13,13 @@
             <section class="block blockcms_footer col-sm-3">
                 <h4>Моя учетная запись<i class="icon-plus-sign"></i></h4>
                 <ul class="list-footer toggle_content clearfix">
-                    <li><a href="/index.php?controller=history" title="Мои заказы" rel="nofollow">Мои
-                            заказы</a></li>
-                    <li><a href="/index.php?controller=order-slip" title="Мои кредитные квитанции"
-                           rel="nofollow">Мои кредитные квитанции</a></li>
-                    <li><a href="/index.php?controller=addresses" title="Мои адреса"
-                           rel="nofollow">Мои адреса</a></li>
-                    <li><a href="/index.php?controller=identity"
-                           title="Управление моей личной информацией" rel="nofollow">Моя личная информация</a></li>
+                    <li><a href="/personal/desktop.php" rel="nofollow"><i class="icon-caret-right"></i>Персональный рабочий стол</a></li>
+
+                    <li><a href="/personal/profile/" class="selected" rel="nofollow"><i class="icon-caret-right"></i>Настройки пользователя</a></li>
+
+                    <li><a href="/personal/order/" rel="nofollow"><i class="icon-caret-right"></i>Заказы</a></li>
+
+                    <li class="last"><a href="/personal/cart/" rel="nofollow"><i class="icon-caret-right"></i>Корзина</a></li>
 
                 </ul>
             </section>
@@ -38,14 +37,13 @@
             <section class="block blockcontactinfos col-sm-3">
                 <h4>Свяжитесь с нами<i class="icon-plus-sign"></i></h4>
                 <ul class="toggle_content">
-                    <li>My Company</li>
-                    <li class="adress-info">42 avenue des Champs Elys&eacute;es
-                        75000 Paris
-                        France
+                    <li>B-59</li>
+                    <li class="adress-info">Мы находимся в ТЦ «Электроника на Пресне» по адресу: Б. Декабрьская д.3
+                        стр.1 (вход со стороны Звенигородского шоссе), в 100 метрах от станции метро «Улица 1905 года».
                     </li>
-                    <li class="tel">Телефон: 0123-456-789</li>
+                    <li class="tel">Телефон: +7 916 797 94 04</li>
                     <li class="email">Email <a
-                                href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%73%61%6c%65%73@%79%6f%75%72%63%6f%6d%70%61%6e%79.%63%6f%6d">&#x73;&#x61;&#x6c;&#x65;&#x73;&#x40;&#x79;&#x6f;&#x75;&#x72;&#x63;&#x6f;&#x6d;&#x70;&#x61;&#x6e;&#x79;&#x2e;&#x63;&#x6f;&#x6d;</a>
+                                href="mailto://zaitsev5626@mail.ru">zaitsev5626@mail.ru</a>
                     </li>
                 </ul>
             </section>
