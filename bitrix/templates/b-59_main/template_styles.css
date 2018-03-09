@@ -82,3 +82,7 @@ p.product_desc {
     top: 80px;
     display: block;
 }
+
+.block_content {
+    padding: 5px;
+}
