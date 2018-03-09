@@ -80,6 +80,9 @@
     <? Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("js/source/jquery.touchSwipe.min.js")) ?>
 
 
+    <? require_once ($_SERVER['DOCUMENT_ROOT'] . $APPLICATION->GetTemplatePath("vendors/krumo-0.4/class.krumo.php")); krumo::$skin = 'blue'; ?>
+
+
     <? $APPLICATION->ShowHead() ?>
 
 </head>
@@ -108,10 +111,10 @@
                     <ul id="header_links" class="hidden-xs">
                         <li id="header_link_contact"><a class="header_links_contact"
                                                         href="/contacts/"
-                                                        title="Контакты"><i class="icon-envelope"></i>Контакты</a></li>
+                                                        title="Контакты" rel="tooltip"><i class="icon-envelope"></i>Контакты</a></li>
                         <li id="header_link_sitemap"><a class="header_links_sitemap"
                                                         href="/sitemap/"
-                                                        title="Карта сайта"><i class="icon-sitemap"></i>Карта сайта</a>
+                                                        title="Ремонт ПК" rel="tooltip"><i class="icon-wrench"></i>Ремонт</a>
                         </li>
                     </ul>
 
@@ -189,6 +192,11 @@
                         </div>
                     </div>
                 <? else: ?>
+                    <section class="blockuserinfo header-box">
+                        <a href="?logout=yes" title="Выход" class="login"
+                           rel="tooltip" data-placement="bottom" data-original-title="first tooltip" ><span><i
+                                        class="icon-lock"></i></span></a>
+                    </section>
                     <section id="your_account">
                         <? $APPLICATION->IncludeComponent("bitrix:main.user.link", "main", Array(
                             "CACHE_TIME" => "7200",    // Время кеширования (сек.)
