@@ -328,13 +328,11 @@
                 </div>
                 <!-- Center -->
                 <div id="center_column" class="center_column col-xs-12 col-sm-9 clearfix">
-                    <?$APPLICATION->IncludeComponent(
-                        "bitrix:breadcrumb",
-                        "",
-                        Array(
-                            "PATH" => "",
-                            "SITE_ID" => "s1",
-                            "START_FROM" => "0"
-                        )
-                    );?>
+                    <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "main", Array(
+	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+		"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+	),
+	false
+);?>
 	    
