@@ -89,6 +89,15 @@ p.product_desc {
     padding: 5px;
 }
 
+#cart_block .cart-prices div {
+    min-height: 50px;
+}
+
+.btn-xs,
+.btn-group-sm>.btn, .btn-sm {
+    font-size: 12px;
+}
+
 /* Хлебные крошки */
 #breadcrumbs-one {
     background: #eee;
@@ -162,4 +171,32 @@ p.product_desc {
 #breadcrumbs-one .current::after,
 #breadcrumbs-one .current::before {
     content: normal;
+}
+
+/* Меню */
+
+#categories_block_left ul.tree > li {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#categories_block_left .grower {
+    width: 100%;
+    height: 30px;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    line-height: 30px;
+    font-size: 15px;
+    font-weight: normal;
+    top: 7px;
+    color: #fff;
+    z-index: 1000;
+}
+/* List */
+.product-item h5,
+.product-item-big-card h5 {
+    height: 80px;
 }

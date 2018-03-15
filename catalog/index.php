@@ -70,7 +70,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 			0 => "POPUP",
 		),
 		"DETAIL_DISPLAY_NAME" => "Y",
-		"DETAIL_DISPLAY_PREVIEW_TEXT_MODE" => "E",
+		"DETAIL_DISPLAY_PREVIEW_TEXT_MODE" => "S",
 		"DETAIL_IMAGE_RESOLUTION" => "16by9",
 		"DETAIL_MAIN_BLOCK_PROPERTY_CODE" => array(
 		),

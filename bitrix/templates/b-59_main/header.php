@@ -305,22 +305,27 @@
                         <ul class="toggle_content tree dhtml">
 
                             <? $APPLICATION->IncludeComponent(
-                                "bitrix:menu",
-                                "left",
-                                Array(
-                                    "ROOT_MENU_TYPE" => "left",
-                                    "MAX_LEVEL" => "1",
-                                    "CHILD_MENU_TYPE" => "left",
-                                    "USE_EXT" => "Y",
-                                    "MENU_CACHE_TYPE" => "A",
-                                    "MENU_CACHE_TIME" => "3600",
-                                    "MENU_CACHE_USE_GROUPS" => "Y",
-                                    "MENU_CACHE_GET_VARS" => array(
-                                        0 => "SECTION_ID",
-                                        1 => "page",
-                                    ),
-                                )
-                            ); ?>
+	"bitrix:menu", 
+	"left", 
+	array(
+		"ROOT_MENU_TYPE" => "left",
+		"MAX_LEVEL" => "2",
+		"CHILD_MENU_TYPE" => "left",
+		"USE_EXT" => "Y",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_TIME" => "3600",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"MENU_CACHE_GET_VARS" => array(
+			0 => "SECTION_ID",
+			1 => "page",
+			2 => "",
+		),
+		"COMPONENT_TEMPLATE" => "left",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N"
+	),
+	false
+); ?>
 
                         </ul>
 
