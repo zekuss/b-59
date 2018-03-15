@@ -1,4 +1,8 @@
 /* Ссылка на детальную страницу */
+
+.btn {
+    font-size: 13px;
+}
 a.btn.btn-default.button.product-item-btn-show-more {
     display: block;
     padding: 15px;
@@ -13,7 +17,7 @@ a.btn.btn-default.button.product-item-btn-show-more {
 }
 
 p.product_desc {
-    min-height: 95px;
+    min-height: 75px;
 }
 
 /* Фильтр */
