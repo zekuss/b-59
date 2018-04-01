@@ -10,7 +10,7 @@ gen
 
 tmp/
 upload/
-backup/
+bitrix/backup/
 bitrix/cache/
 bitrix/managed_cache/
 bitrix/*cache*
