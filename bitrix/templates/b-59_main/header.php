@@ -80,7 +80,8 @@
     <? Asset::getInstance()->addJs($APPLICATION->GetTemplatePath("js/source/jquery.touchSwipe.min.js")) ?>
 
 
-    <? require_once ($_SERVER['DOCUMENT_ROOT'] . $APPLICATION->GetTemplatePath("vendors/krumo-0.4/class.krumo.php")); krumo::$skin = 'blue'; ?>
+    <? require_once($_SERVER['DOCUMENT_ROOT'] . $APPLICATION->GetTemplatePath("vendors/krumo-0.4/class.krumo.php"));
+    krumo::$skin = 'blue'; ?>
 
 
     <? $APPLICATION->ShowHead() ?>
@@ -99,10 +100,90 @@
     <div class="page_wrapper_1 clearfix">
         <!-- Header -->
         <header id="header" class="container">
-            <div id="header_right">
-                <a id="header_logo" href="/" title="B-59">
+            <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: #4fcbd7;">
+                <a id="" href="/" title="B-59">
                     <img class="logo" src="<?= $APPLICATION->GetTemplatePath("img/logo.png") ?>" alt="B-59"/>
                 </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
+                        aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar1">
+                    <ul class="navbar-nav mr-auto" id="top-links">
+                        <? $APPLICATION->IncludeComponent("bitrix:menu", "top", Array(
+                            "ROOT_MENU_TYPE" => "top",    // Тип меню для первого уровня
+                            "MAX_LEVEL" => "1",    // Уровень вложенности меню
+                            "CHILD_MENU_TYPE" => "top",    // Тип меню для остальных уровней
+                            "USE_EXT" => "Y",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                            "MENU_CACHE_TYPE" => "A",    // Тип кеширования
+                            "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+                            "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
+                            "MENU_CACHE_GET_VARS" => array(    // Значимые переменные запроса
+                                0 => "SECTION_ID",
+                                1 => "page",
+                            )
+                        ),
+                            false
+                        ); ?>
+
+                    </ul>
+                    <? if (!$USER->IsAuthorized()) : ?>
+                        <section class="blockuserinfo">
+                            <a href="#" title="Вход" class="login"
+                               rel="tooltip" data-placement="bottom" data-original-title="first tooltip"
+                               data-toggle="modal"
+                               data-target="#authModal"><span><i
+                                            class="icon-lock"></i></span></a>
+                        </section>
+                        <!-- Modal -->
+                        <div class="modal fade" id="authModal" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Авторизация</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <? $APPLICATION->IncludeComponent(
+                                            "bitrix:system.auth.form",
+                                            "main",
+                                            Array(
+                                                "FORGOT_PASSWORD_URL" => "/personal/profile/",
+                                                "PROFILE_URL" => "/personal/profile/",
+                                                "REGISTER_URL" => "/personal/profile/",
+                                                "SHOW_ERRORS" => "N"
+                                            )
+                                        ); ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <? else: ?>
+                        <section class="blockuserinfo ">
+                            <a href="?logout=yes" title="Выход" class="login"
+                               rel="tooltip" data-placement="bottom" data-original-title="first tooltip"><span><i
+                                            class="icon-lock"></i></span></a>
+                        </section>
+                        <section id="your_account">
+                            <? $APPLICATION->IncludeComponent("bitrix:main.user.link", "main", Array(
+                                "CACHE_TIME" => "7200",    // Время кеширования (сек.)
+                                "CACHE_TYPE" => "A",    // Тип кеширования
+                                "ID" => $USER->GetID(),    // Идентификатор пользователя
+                                "NAME_TEMPLATE" => "",    // Отображение имени
+                                "SHOW_LOGIN" => "Y",    // Показывать логин, если не задано имя
+                                "USE_THUMBNAIL_LIST" => "N",    // Отображать личное фото в списке
+                            ),
+                                false
+                            ); ?>
+                        </section>
+                    <? endif; ?>
+                </div>
+            </nav>
+            <div id="header_right">
 
                 <!-- Block languages module -->
                 <!-- /Block languages module -->
@@ -111,7 +192,8 @@
                     <ul id="header_links" class="hidden-xs">
                         <li id="header_link_contact"><a class="header_links_contact"
                                                         href="/contacts/"
-                                                        title="Контакты" rel="tooltip"><i class="icon-envelope"></i>Контакты</a></li>
+                                                        title="Контакты" rel="tooltip"><i class="icon-envelope"></i>Контакты</a>
+                        </li>
                         <li id="header_link_sitemap"><a class="header_links_sitemap"
                                                         href="/sitemap/"
                                                         title="Ремонт ПК" rel="tooltip"><i class="icon-wrench"></i>Ремонт</a>
@@ -157,61 +239,8 @@
 
                 <!-- /Block search module TOP -->
 
-                <!-- Block user information module HEADER -->
-                <? if (!$USER->IsAuthorized()) : ?>
-                    <section class="blockuserinfo header-box">
-                        <a href="#" title="Вход" class="login"
-                           rel="tooltip" data-placement="bottom" data-original-title="first tooltip" data-toggle="modal"
-                           data-target="#authModal"><span><i
-                                        class="icon-lock"></i></span></a>
-                    </section>
-                    <!-- Modal -->
-                    <div class="modal fade" id="authModal" tabindex="-1" role="dialog"
-                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Авторизация</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <?$APPLICATION->IncludeComponent(
-                                        "bitrix:system.auth.form",
-                                        "main",
-                                        Array(
-                                            "FORGOT_PASSWORD_URL" => "/personal/profile/",
-                                            "PROFILE_URL" => "/personal/profile/",
-                                            "REGISTER_URL" => "/personal/profile/",
-                                            "SHOW_ERRORS" => "N"
-                                        )
-                                    );?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <? else: ?>
-                    <section class="blockuserinfo header-box">
-                        <a href="?logout=yes" title="Выход" class="login"
-                           rel="tooltip" data-placement="bottom" data-original-title="first tooltip" ><span><i
-                                        class="icon-lock"></i></span></a>
-                    </section>
-                    <section id="your_account">
-                        <? $APPLICATION->IncludeComponent("bitrix:main.user.link", "main", Array(
-                            "CACHE_TIME" => "7200",    // Время кеширования (сек.)
-                            "CACHE_TYPE" => "A",    // Тип кеширования
-                            "ID" => $USER->GetID(),    // Идентификатор пользователя
-                            "NAME_TEMPLATE" => "",    // Отображение имени
-                            "SHOW_LOGIN" => "Y",    // Показывать логин, если не задано имя
-                            "USE_THUMBNAIL_LIST" => "N",    // Отображать личное фото в списке
-                        ),
-                            false
-                        ); ?>
-                    </section>
-                <? endif; ?>
 
-                <?$APPLICATION->IncludeComponent(
+                <? $APPLICATION->IncludeComponent(
                     "bitrix:sale.basket.basket",
                     "small",
                     Array(
@@ -219,8 +248,8 @@
                         "ADDITIONAL_PICT_PROP_8" => "-",
                         "AUTO_CALCULATION" => "Y",
                         "BASKET_IMAGES_SCALING" => "adaptive",
-                        "COLUMNS_LIST_EXT" => array(0=>"PREVIEW_PICTURE",1=>"DISCOUNT",2=>"DELETE",3=>"DELAY",4=>"TYPE",5=>"SUM",),
-                        "COLUMNS_LIST_MOBILE" => array(0=>"PREVIEW_PICTURE",1=>"DISCOUNT",2=>"DELETE",3=>"DELAY",4=>"TYPE",5=>"SUM",),
+                        "COLUMNS_LIST_EXT" => array(0 => "PREVIEW_PICTURE", 1 => "DISCOUNT", 2 => "DELETE", 3 => "DELAY", 4 => "TYPE", 5 => "SUM",),
+                        "COLUMNS_LIST_MOBILE" => array(0 => "PREVIEW_PICTURE", 1 => "DISCOUNT", 2 => "DELETE", 3 => "DELAY", 4 => "TYPE", 5 => "SUM",),
                         "COMPATIBLE_MODE" => "Y",
                         "COMPONENT_TEMPLATE" => "small",
                         "CORRECT_RATIO" => "N",
@@ -256,14 +285,14 @@
                         "SHOW_FILTER" => "Y",
                         "SHOW_RESTORE" => "Y",
                         "TEMPLATE_THEME" => "green",
-                        "TOTAL_BLOCK_DISPLAY" => array(0=>"bottom",),
+                        "TOTAL_BLOCK_DISPLAY" => array(0 => "bottom",),
                         "USE_DYNAMIC_SCROLL" => "Y",
                         "USE_ENHANCED_ECOMMERCE" => "N",
                         "USE_GIFTS" => "N",
                         "USE_PREPAYMENT" => "N",
                         "USE_PRICE_ANIMATION" => "Y"
                     )
-                );?>
+                ); ?>
                 <div id="menu-wrap" class="clearfix desktop">
                     <div id="menu-trigger">Категории<i class="menu-icon icon-plus-sign-alt"></i></div>
                     <ul id="menu-custom">
@@ -305,27 +334,27 @@
                         <ul class="toggle_content tree dhtml">
 
                             <? $APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"left", 
-	array(
-		"ROOT_MENU_TYPE" => "left",
-		"MAX_LEVEL" => "2",
-		"CHILD_MENU_TYPE" => "left",
-		"USE_EXT" => "Y",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "3600",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"MENU_CACHE_GET_VARS" => array(
-			0 => "SECTION_ID",
-			1 => "page",
-			2 => "",
-		),
-		"COMPONENT_TEMPLATE" => "left",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N"
-	),
-	false
-); ?>
+                                "bitrix:menu",
+                                "left",
+                                array(
+                                    "ROOT_MENU_TYPE" => "left",
+                                    "MAX_LEVEL" => "2",
+                                    "CHILD_MENU_TYPE" => "left",
+                                    "USE_EXT" => "Y",
+                                    "MENU_CACHE_TYPE" => "A",
+                                    "MENU_CACHE_TIME" => "3600",
+                                    "MENU_CACHE_USE_GROUPS" => "Y",
+                                    "MENU_CACHE_GET_VARS" => array(
+                                        0 => "SECTION_ID",
+                                        1 => "page",
+                                        2 => "",
+                                    ),
+                                    "COMPONENT_TEMPLATE" => "left",
+                                    "DELAY" => "N",
+                                    "ALLOW_MULTI_SELECT" => "N"
+                                ),
+                                false
+                            ); ?>
 
                         </ul>
 
@@ -341,11 +370,11 @@
                 </div>
                 <!-- Center -->
                 <div id="center_column" class="center_column col-xs-12 col-sm-9 clearfix">
-                    <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "main", Array(
-	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
-		"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
-		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
-	),
-	false
-);?>
+                    <? $APPLICATION->IncludeComponent("bitrix:breadcrumb", "main", Array(
+                        "PATH" => "",    // Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+                        "SITE_ID" => "s1",    // Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+                        "START_FROM" => "0",    // Номер пункта, начиная с которого будет построена навигационная цепочка
+                    ),
+                        false
+                    ); ?>
 	    

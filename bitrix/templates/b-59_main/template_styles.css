@@ -3,6 +3,7 @@
 .btn {
     font-size: 13px;
 }
+
 a.btn.btn-default.button.product-item-btn-show-more {
     display: block;
     padding: 15px;
@@ -98,7 +99,7 @@ p.product_desc {
 }
 
 .btn-xs,
-.btn-group-sm>.btn, .btn-sm {
+.btn-group-sm > .btn, .btn-sm {
     font-size: 12px;
 }
 
@@ -179,6 +180,27 @@ p.product_desc {
 
 /* Меню */
 
+#top-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.2em;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+#top-links a:hover,
+#top-links a.selected
+{
+    text-decoration: none;
+    color: #18212a;
+}
+
 #categories_block_left ul.tree > li {
     padding-left: 15px;
     padding-right: 15px;
@@ -199,8 +221,48 @@ p.product_desc {
     color: #fff;
     z-index: 1000;
 }
+
+
 /* List */
 .product-item h5,
 .product-item-big-card h5 {
     height: 80px;
 }
+
+/* Верхнее меню */
+.blockuserinfo, #your_account {
+    top: 25px;
+}
+
+.blockuserinfo {
+    right: 10px;
+}
+
+.blockuserinfo a:hover, #your_account a:hover {
+    color: #fff;
+}
+
+.blockuserinfo a i, #your_account a i {
+    color: #fff;
+}
+
+button.btn.btn-default.exclusive.btn_add_cart {
+    min-width: 122px;
+}
+
+/* Корзина */
+basket-checkout-block-total-description {
+    display: none;
+}
+
+.form-control {
+    font-size: 1.5rem;
+}
+
+.sale-order-title {
+    margin-top: 50px;
+}
+
+
+
+
