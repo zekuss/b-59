@@ -1,8 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Демонстрационная версия продукта «1С-Битрикс: Управление сайтом»");
+$APPLICATION->SetPageProperty("description", "Интернет-магазин ПК и комплектующих");
+$APPLICATION->SetPageProperty("keywords", "ПК, компьютреы, комплектующие");
+$APPLICATION->SetPageProperty("title", "Интернет-магазин ПК и комплектующих");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
-$APPLICATION->SetTitle("Каталог товаров из 1C:Предприятие");
+$APPLICATION->SetTitle("Каталог товаров");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.top", 
 	"main", 
