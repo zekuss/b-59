@@ -133,7 +133,7 @@ if(CheckFilter($arFilterFields))
 		"EMAIL" => ($find!='' && $find_type == "email"? $find: $find_email),
 		"KEYWORDS" => $find_keywords,
 		"GROUPS_ID" => $find_group_id
-	);
+		);
 	if ($bIntranetEdition)
 		$arFilter["INTRANET_USERS"] = $find_intranet_users;
 	$USER_FIELD_MANAGER->AdminListAddFilter($entity_id, $arFilter);
@@ -432,7 +432,8 @@ if($sortOrder <> "DESC" && $sortOrder <> "ASC")
 $userQuery->setOrder(array($sortBy => $sortOrder));
 $userQuery->countTotal(true);
 $userQuery->setOffset($nav->getOffset());
-$userQuery->setLimit($nav->getLimit());
+if ($_REQUEST["mode"] !== "excel")
+	$userQuery->setLimit($nav->getLimit());
 
 $filterOption = new Bitrix\Main\UI\Filter\Options($sTableID);
 $filterData = $filterOption->getFilter($filterFields);
@@ -462,12 +463,22 @@ foreach ($listRatingColumn as $ratingColumn)
 if (isset($arFilter["NAME"]))
 {
 	$listFields = array("NAME", "LAST_NAME", "SECOND_NAME");
+	$nameWords = $arFilter["NAME"];
+	$filterQueryObject = new CFilterQuery("and", "yes", "N", array(), "N", "Y", "N");
+	$nameWords = $filterQueryObject->CutKav($nameWords);
+	$nameWords = $filterQueryObject->ParseQ($nameWords);
+	if (strlen($nameWords) > 0 && $nameWords !== "( )")
+		$parsedNameWords = preg_split('/[&&(||)]/',  $nameWords, -1, PREG_SPLIT_NO_EMPTY);
+
 	$filterOr = Query::filter()->logic("or");
 	foreach ($listFields as $fieldId)
 	{
-		$filterOr->where(Query::filter()
-			->whereLike($fieldId, new SqlExpression("'%".$arFilter["NAME"]."%'"))
-		);
+		foreach ($parsedNameWords as $nameWord)
+		{
+			$filterOr->where(Query::filter()
+				->whereLike($fieldId, new SqlExpression("'".trim($nameWord)."'"))
+			);
+		}
 	}
 	$userQuery->where($filterOr);
 }

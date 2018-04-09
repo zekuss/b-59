@@ -29,7 +29,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
                     <span class="mf-req">*</span>
                 <? endif ?>
             </label>
-            <input type="text" class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="Введите имя"
+            <input type="text" name="user_name" class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="Введите имя"
                    value="<?= $arResult["AUTHOR_NAME"] ?>"/>
             <small id="nameHelp" class="form-text text-muted">Введите ваше имя.</small>
         </div>
@@ -39,7 +39,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
                     <span class="mf-req">*</span>
                 <? endif ?>
             </label>
-            <input type="text" class="form-control" id="InputEMAIL" aria-describedby="emailHelp"
+            <input type="text" name="user_email" class="form-control" id="InputEMAIL" aria-describedby="emailHelp"
                    placeholder="Введите EMAIL" value="<?= $arResult["AUTHOR_EMAIL"] ?>"/>
             <small id="emailHelp" class="form-text text-muted">Введите вашу почту.</small>
         </div>

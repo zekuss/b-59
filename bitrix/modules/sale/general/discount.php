@@ -1859,15 +1859,12 @@ class CAllSaleDiscount
 				continue;
 			if (is_string($fields[$fieldName]))
 			{
-				try
-				{
-					$fields[$fieldName] = trim($fields[$fieldName]);
-					$fields[$fieldName] = ($fields[$fieldName] !== '' ? new Main\Type\DateTime($fields[$fieldName]) : null);
-				}
-				catch (Main\ObjectException $e)
-				{
-					$fields[$fieldName] = new Main\Type\Date($fields[$fieldName]);
-				}
+				$fields[$fieldName] = trim($fields[$fieldName]);
+				$fields[$fieldName] = (
+					$fields[$fieldName] === ''
+					? null
+					: Main\Type\DateTime::createFromUserTime($fields[$fieldName])
+				);
 			}
 			$result[$fieldName] = $fields[$fieldName];
 		}

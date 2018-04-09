@@ -234,6 +234,24 @@ p.product_desc {
     top: 25px;
 }
 
+@media only screen and (max-width: 767px){
+    .blockuserinfo {
+        top:75px;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+        #header_user {
+        top: -10px;
+        right: 0;
+    }
+}
+@media only screen and (max-width: 560px) {
+    .bx-user-info-name{
+        display: none;
+    }
+}
+
 .blockuserinfo {
     right: 10px;
 }
@@ -251,7 +269,7 @@ button.btn.btn-default.exclusive.btn_add_cart {
 }
 
 /* Корзина */
-basket-checkout-block-total-description {
+.basket-checkout-block-total-description {
     display: none;
 }
 

@@ -640,6 +640,10 @@ if (!empty($arParams['LABEL_PROP_POSITION'])) {
                                                                 </a>
                                                             </div>
                                                         </div>
+
+                                                        <div class="buy-oneclick">
+                                                            <button data-module="buyoneclick" data-id="<?=$arResult['ID']?>" class="btn btn-default exclusive btn_add_cart">Купить в 1 клик</button>
+                                                        </div>
                                                         <?
                                                     } else {
                                                         $arParams['MESS_NOT_AVAILABLE'];

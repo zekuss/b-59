@@ -8,4 +8,3 @@ function FunctionName(params)
 	//code
 }
 */
-?>

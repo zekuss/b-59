@@ -1,4 +1,4 @@
-<? use Bitrix\Main\Page\Asset; ?>
+﻿<? use Bitrix\Main\Page\Asset; ?>
 <!DOCTYPE HTML>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7 " lang="ru"> <![endif]-->
@@ -11,13 +11,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
 <head>
 
-    <title><?= $APPLICATION->GetTitle() ?></title>
+    <title><?=$APPLICATION->ShowTitle(true)?></title>
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
     <meta http-equiv="content-language" content="ru"/>
     <meta name="robots" content="index,follow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300,700,700italic,900' rel='stylesheet'
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,500,300,700,700italic,900' rel='stylesheet'
           type='text/css'>
     <script>
         if (navigator.userAgent.match(/Android/i)) {
@@ -84,14 +84,14 @@
     krumo::$skin = 'blue'; ?>
 
 
-    <? $APPLICATION->ShowHead() ?>
+    <?$APPLICATION->ShowHead();?>
 
 </head>
 <? $APPLICATION->ShowPanel() ?>
 <!--[if lt IE 9]>
 <div style='clear:both;height:59px;padding:0 15px 0 15px;position:relative;z-index:10000;text-align:center;'><a
-        href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img
-        src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42"
+        href="//www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img
+        src="//storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42"
         width="820"
         alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/></a>
 </div><![endif]-->
@@ -104,11 +104,6 @@
                 <a id="" href="/" title="B-59">
                     <img class="logo" src="<?= $APPLICATION->GetTemplatePath("img/logo.png") ?>" alt="B-59"/>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
-                        aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbar1">
                     <ul class="navbar-nav mr-auto" id="top-links">
                         <? $APPLICATION->IncludeComponent("bitrix:menu", "top", Array(
@@ -195,12 +190,13 @@
                                                         title="Контакты" rel="tooltip"><i class="icon-envelope"></i>Контакты</a>
                         </li>
                         <li id="header_link_sitemap"><a class="header_links_sitemap"
-                                                        href="/sitemap/"
+                                                        href="http://b-59.ru.com"
                                                         title="Ремонт ПК" rel="tooltip"><i class="icon-wrench"></i>Ремонт</a>
                         </li>
                     </ul>
 
-                    <div class="mobile-link-top header-button visible-xs">
+                    <div class="mobile-link-top header-button visible-xs" data-toggle="collapse" data-target="#navbar1"
+                         aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
                         <h4 class="icon_wrapp">
                             <span class="title-hed"></span><i
                                     class="arrow_header_top_menu arrow_header_top icon-reorder"></i>

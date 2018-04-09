@@ -43,7 +43,7 @@ CJSCore::Init();
                 });
             </script>
 
-            <input class="form-control" id="inputPassword"
+            <input class="form-control" id="inputLogin"
                    placeholder="<?= GetMessage("AUTH_PASSWORD") ?>" type="password"
                    name="USER_PASSWORD" maxlength="50" value="" size="17" autocomplete="off"/>
 

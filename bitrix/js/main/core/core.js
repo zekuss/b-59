@@ -2797,7 +2797,7 @@ BX.util = {
 				{
 					s2 = ii[1].toString().toLowerCase();
 				}
-				
+
 				if (s1 < s2)
 					return 1;
 				else if (s1 > s2)
@@ -4439,7 +4439,7 @@ BX.parseDate = function(str, bUTC, formatDate, formatDatetime)
 				d.setUTCFullYear(aResult['YYYY']);
 				d.setUTCMonth(aResult['MM'] - 1);
 				d.setUTCDate(aResult['DD']);
-				d.setUTCHours(0, 0, 0);
+				d.setUTCHours(0, 0, 0, 0);
 			}
 			else
 			{
@@ -4447,7 +4447,7 @@ BX.parseDate = function(str, bUTC, formatDate, formatDatetime)
 				d.setFullYear(aResult['YYYY']);
 				d.setMonth(aResult['MM'] - 1);
 				d.setDate(aResult['DD']);
-				d.setHours(0, 0, 0);
+				d.setHours(0, 0, 0, 0);
 			}
 
 			if(
@@ -6221,65 +6221,3 @@ if(typeof(BX.Promise) === "undefined")
 }
 
 })(window);
-
-/* Polyfill section */
-
-if (!Array.prototype.find)
-{
-	Array.prototype.find = function(predicate)
-	{
-		if (this == null)
-		{
-			throw new TypeError('Array.prototype.find called on null or undefined');
-		}
-		if (typeof predicate !== 'function')
-		{
-			throw new TypeError('predicate must be a function');
-		}
-		var list = Object(this);
-		var length = list.length >>> 0;
-		var thisArg = arguments[1];
-		var value;
-
-		for (var i = 0; i < length; i++)
-		{
-			value = list[i];
-			if (predicate.call(thisArg, value, i, list))
-			{
-				return value;
-			}
-		}
-		return undefined;
-	};
-}
-
-if (!Array.prototype.findIndex)
-{
-	Array.prototype.findIndex = function(predicate)
-	{
-		if (this == null)
-		{
-			throw new TypeError('Array.prototype.findIndex called on null or undefined');
-		}
-
-		if (typeof predicate !== 'function')
-		{
-			throw new TypeError('predicate must be a function');
-		}
-
-		var list = Object(this);
-		var length = list.length >>> 0;
-		var thisArg = arguments[1];
-		var value;
-
-		for (var i = 0; i < length; i++)
-		{
-			value = list[i];
-			if (predicate.call(thisArg, value, i, list))
-			{
-				return i;
-			}
-		}
-		return -1;
-	};
-}
