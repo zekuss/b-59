@@ -186,8 +186,8 @@
                 <section class="header-box blockpermanentlinks-header">
                     <ul id="header_links" class="hidden-xs">
                         <li id="header_link_contact"><a class="header_links_contact"
-                                                        href="/contacts/"
-                                                        title="Контакты" rel="tooltip"><i class="icon-envelope"></i>Контакты</a>
+                                                        href="/actions/"
+                                                        title="Акции" rel="tooltip"><i class="icon-star"></i>Акции</a>
                         </li>
                         <li id="header_link_sitemap"><a class="header_links_sitemap"
                                                         href="http://b-59.ru.com"

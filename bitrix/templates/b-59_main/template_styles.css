@@ -178,8 +178,82 @@ p.product_desc {
     content: normal;
 }
 
+/* Правки для поднятия вверх панели поиска */
+#header #header_right {
+    padding: 80px 0px 0px 0px;
+}
+#search_block_top,
+#header_user {
+    top: 0px;
+}
+.blockpermanentlinks-header {
+    top: 25px;
+}
+
+.navbar {
+    border-radius: 0px;
+}
+
+@media only screen and (max-width: 560px) {
+    #header_user #shopping_cart a {
+        width: 70px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #search_block_top {
+        padding: 15px;
+        top: 46px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #header #header_right {
+        padding-top: 110px;
+    }
+}
+
 /* Меню */
 
+@media only screen and (max-width: 767px) {
+    #menu-custom ul.menu-mobile-2 {
+        display: block;
+    }
+
+    .navbar-toggler:not(:disabled):not(.disabled) {
+        position: fixed;
+        top: 82px;
+        width: 65px;
+        height: 60px;
+    }
+    #header_user #shopping_cart a {
+        padding: 21px 20px;
+        border-radius: 0px;
+
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+
+    .mobile-link-top h4 .arrow_header_top_menu.arrow_header_top {
+        display: block;
+        position: static;
+        margin: -25px auto;
+        font-size: 25px;
+        text-align: center;
+        background: #18212a;
+        color: #FFF;
+    }
+
+    #header_user #shopping_cart a:before {
+        left: 15px;
+    }
+}
+
+.sticky-top {
+    margin-bottom: 0px;
+}
 #top-links a {
     color: #fff;
     text-decoration: none;
@@ -195,8 +269,7 @@ p.product_desc {
 }
 
 #top-links a:hover,
-#top-links a.selected
-{
+#top-links a.selected {
     text-decoration: none;
     color: #18212a;
 }
@@ -222,7 +295,6 @@ p.product_desc {
     z-index: 1000;
 }
 
-
 /* List */
 .product-item h5,
 .product-item-big-card h5 {
@@ -234,21 +306,16 @@ p.product_desc {
     top: 25px;
 }
 
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 767px) {
     .blockuserinfo {
-        top:75px;
+        top: 75px;
     }
 }
 
 @media only screen and (max-width: 560px) {
-        #header_user {
-        top: -10px;
+    #header_user {
+        top: 0px;
         right: 0;
-    }
-}
-@media only screen and (max-width: 560px) {
-    .bx-user-info-name{
-        display: none;
     }
 }
 
